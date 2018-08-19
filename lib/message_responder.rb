@@ -6,6 +6,13 @@ class MessageResponder
   attr_reader :message
   attr_reader :bot
 
+  HELP = <<EOS
+/start - Run TagHelperBot\n
+/stop - Stop TagHelperBot\n
+/help - Get bot commands\n
+/change_category - Choose language which you interested in
+EOS
+
   def initialize(options)
     @bot = options[:bot]
     @message = options[:message]
@@ -19,10 +26,14 @@ class MessageResponder
       answer_with_answers("Привет, #{get_user} 😄", answers)
     when '/stop'
       answer_with_farewell_message
+    when '/help'
+      answer_with_message HELP
     when 'HTML'
       answer_with_message "Введи HTML tag"
       @bot.listen do |message|
         case message.text
+        when '/help'
+          answer_with_message HELP
         when '/change_category'
           answers = %w[HTML CSS]
           answer_with_answers("Выбери категорию", answers)
@@ -35,6 +46,8 @@ class MessageResponder
       answer_with_message "Введи CSS property"
       @bot.listen do |message|
         case message.text
+        when '/help'
+          answer_with_message HELP
         when '/change_category'
           answers = %w[HTML CSS]
           answer_with_answers("Выбери категорию", answers)
