@@ -18,10 +18,11 @@ tags_html = page.search(".flat-cat").children
 
 tags_html.each do |el|
   name, desc = el.search('td')
+  href = name.at('a').attributes["href"].value
   name = name.text.split.first.slice(/\w+/)
   desc = desc.text.gsub("<","&lt;")
   desc = desc.gsub(">","&gt;")
-  data[:HTML][name] = desc
+  data[:HTML][name] = {description: desc, link: href}
 end
 
 # CSS data
