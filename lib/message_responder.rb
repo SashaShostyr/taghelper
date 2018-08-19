@@ -15,7 +15,7 @@ class MessageResponder
   def respond
     case @message.text
     when '/start'
-      answers = %w[HTML CSS RUBY]
+      answers = %w[HTML CSS]
       answer_with_answers("Привет, #{get_user} 😄", answers)
     when '/stop'
       answer_with_farewell_message
