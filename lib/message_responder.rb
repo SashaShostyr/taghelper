@@ -8,10 +8,12 @@ class MessageResponder
   attr_reader :bot
 
   HELP = <<EOS
-/start - Run TagHelperBot\n
-/stop - Stop TagHelperBot\n
-/help - Get bot commands\n
+/start - Run TagHelperBot
+/stop - Stop TagHelperBot
+/help - Get bot commands
 /change_category - Choose language which you interested in
+/categories - List categories
+/add - Add new video
 EOS
 
   def initialize(options)
@@ -29,6 +31,9 @@ EOS
       answer_with_farewell_message
     when '/help'
       answer_with_message HELP
+    when '/categories'
+      answers = %w[HTML CSS RUBIZZA]
+      answer_with_answers("Выбери категорию", answers)
     when 'HTML'
       answer_with_message "Введи HTML tag"
       @bot.listen do |message|
@@ -67,6 +72,15 @@ EOS
           answers = %w[HTML CSS RUBIZZA]
           answer_with_answers("Выбери категорию", answers)
           return
+        when '/add'
+          answer_with_message "Добавь название и ссылку на видео (пример: название - ссылка)"
+          @bot.listen do |message|
+            name, link = message.text.split("-")
+            if name && link
+              @data["RUBIZZA"][name] = [link]
+            end
+            return
+          end
         else
           get_answer(@data["RUBIZZA"], message.text, "RUBIZZA")
         end
