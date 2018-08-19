@@ -7,7 +7,25 @@ agent = Mechanize.new
 data = {
   HTML: {},
   CSS: {},
-  RUBY: {}
+  RUBIZZA: {
+    "Views, Controllers, and Forms": ["https://www.youtube.com/watch?v=EG2azvM1U14"],
+    "Metaprogramming": ["https://www.youtube.com/watch?v=XVasDCE7lu4"],
+    "Routes": ["https://www.youtube.com/watch?v=Zgvw6gcen0E"],
+    "Models and Database": ["https://www.youtube.com/watch?v=NjrGImBZggg"],
+    "API": ["https://www.youtube.com/watch?v=crSRmW9hmdg"],
+    "Rails": ["https://www.youtube.com/watch?v=xjAr-kgN_nA"],
+    "Threads and Processes": ["https://www.youtube.com/watch?v=T3tPgUlzug8"],
+    "Patterns": ["https://www.youtube.com/watch?v=nT9sayKnb6Y"],
+    "Tests": ["https://www.youtube.com/watch?v=eVSaLSpHHpY"],
+    "Wheel of projects": ["https://www.youtube.com/watch?v=qHzUuqYxRv8"],
+    "Exceptions": ["https://www.youtube.com/watch?v=RUbK8En-fAY"],
+    "Variables, expressions, standart types": ["https://www.youtube.com/watch?v=DaGy0PQH8SE"],
+    "Git": ["https://www.youtube.com/watch?v=Se-4Mf2m5uE"],
+    "OOP": ["https://www.youtube.com/watch?v=ofEWAqAmhbY", "https://www.youtube.com/watch?v=l8d4h9AttBE", "https://www.youtube.com/watch?v=mSVY1wYOlP4"],
+    "Event1": ["https://www.youtube.com/watch?v=X5lk1-_oNeQ", "https://www.youtube.com/watch?v=1HZYHpol_YU", "https://www.youtube.com/watch?v=VEdbhg_TSOY"],
+    "Ruby": ["https://www.youtube.com/watch?v=Xr4UahRAtHs", "https://www.youtube.com/watch?v=mSVY1wYOlP4"],
+    "Intro": ["https://www.youtube.com/watch?v=myaANa2AxNg"]
+  }
 }
 
 # HTML data

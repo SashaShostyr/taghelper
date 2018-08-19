@@ -1,6 +1,7 @@
 require_relative 'message_sender'
 require_relative 'html_helper'
 require_relative 'css_helper'
+require_relative 'rubizza_helper'
 
 class MessageResponder
   attr_reader :message
@@ -22,7 +23,7 @@ EOS
   def respond
     case @message.text
     when '/start'
-      answers = %w[HTML CSS]
+      answers = %w[HTML CSS RUBIZZA]
       answer_with_answers("Привет, #{get_user} 😄", answers)
     when '/stop'
       answer_with_farewell_message
@@ -35,7 +36,7 @@ EOS
         when '/help'
           answer_with_message HELP
         when '/change_category'
-          answers = %w[HTML CSS]
+          answers = %w[HTML CSS RUBIZZA]
           answer_with_answers("Выбери категорию", answers)
           return
         else
@@ -49,13 +50,29 @@ EOS
         when '/help'
           answer_with_message HELP
         when '/change_category'
-          answers = %w[HTML CSS]
+          answers = %w[HTML CSS RUBIZZA]
           answer_with_answers("Выбери категорию", answers)
           return
         else
           get_answer(@data["CSS"], message.text, "CSS")
         end
       end
+    when 'RUBIZZA'
+      answer_with_message "Введи название видео"
+      @bot.listen do |message|
+        case message.text
+        when '/help'
+          answer_with_message HELP
+        when '/change_category'
+          answers = %w[HTML CSS RUBIZZA]
+          answer_with_answers("Выбери категорию", answers)
+          return
+        else
+          get_answer(@data["RUBIZZA"], message.text, "RUBIZZA")
+        end
+      end
+    else
+      answer_with_message "Something wrong. /help"
     end
   end
 
@@ -90,6 +107,8 @@ EOS
       HtmlHelper.get_answer(data_category, name)
     when "CSS"
       CssHelper.get_answer(data_category, name)
+    when "RUBIZZA"
+      RubizzaHelper.get_answer(data_category, name)
     end
   end
 
