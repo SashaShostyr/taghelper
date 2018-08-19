@@ -4,7 +4,7 @@ require 'pry'
 require_relative 'lib/message_responder'
 require_relative 'lib/database'
 
-TOKEN = ENV['TOKEN']
+TOKEN = "621566334:AAHdcwORww9rxsEFsgeosc1EIi6oRkyL-fw".freeze
 
 class Bot
   def initialize

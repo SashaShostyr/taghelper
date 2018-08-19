@@ -24,7 +24,7 @@ class MessageResponder
       @bot.listen do |message|
         case message.text
         when '/change_category'
-          answers = %w[HTML CSS RUBY]
+          answers = %w[HTML CSS]
           answer_with_answers("Выбери категорию", answers)
           return
         else
@@ -36,7 +36,7 @@ class MessageResponder
       @bot.listen do |message|
         case message.text
         when '/change_category'
-          answers = %w[HTML CSS RUBY]
+          answers = %w[HTML CSS]
           answer_with_answers("Выбери категорию", answers)
           return
         else
